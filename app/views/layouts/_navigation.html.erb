@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Navbar</a>
+  <span class="navbar-text"><%= notice %></span>
+  <span class="navbar-text"><%= alert %></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sessionRegistration" aria-controls="sessionRegistration" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="sessionRegistration">
+    <ul class="navbar-nav mr-right">
+
+      <% if !user_signed_in? %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle btn btn-outline-success my-2 my-sm-0" href="#" id="logInDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Log in
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="logInDropdown" style="padding:20px">
+          <%= render 'devise/sessions/new' %>
+        </div>
+      </li>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle btn btn-outline-success my-2 my-sm-0" href="#" id="signUpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sign up
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="signUpDropdown" style="padding:20px">
+          <%= render 'devise/registrations/new' %>
+        </div>
+      </li>
+      <% end %>
+      <% if user_signed_in? %>
+          <%= link_to destroy_user_session_path, method: 'delete' do %>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign Out</button>
+          <% end %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

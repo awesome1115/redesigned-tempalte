@@ -1,0 +1,34 @@
+<div class="dropdown-form">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <div class="form-group row">
+        <%= f.label :email, class: 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <%= f.label :password, class: 'col-sm-3 col-form-label' %>
+        <div class="col-sm-9">
+          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+        </div>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+          <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+      <% end -%>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2">
+          <%= f.submit "Log in", class: 'btn btn-primary' %>
+        </div>
+        <%= render "devise/shared/links" %>
+      </div>
+  <% end %>
+</div>
+
+
+
