@@ -21,12 +21,10 @@
             <%= f.label :remember_me %>
           </div>
       <% end -%>
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group mr-2">
-          <%= f.submit "Log in", class: 'btn btn-primary' %>
-        </div>
-        <%= render "devise/shared/links" %>
-      </div>
+
+      <%= f.submit 'Log in', class: 'btn btn-primary' %>
+
+
   <% end %>
 </div>
 
